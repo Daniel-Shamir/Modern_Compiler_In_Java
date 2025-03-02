@@ -1,0 +1,43 @@
+options {
+  JAVA_UNICODE_ESCAPE = true;
+}
+
+PARSER_BEGIN(MiniJavaLexer)
+  package $MINIJAVA.chap2.MiniJavaLexer;
+  public class MiniJavaLexer {}
+PARSER_END(MiniJavaLexer)
+
+
+// Insert a specification of a lexical analysis here.
+TOKEN : {
+    < #DIGIT: ["0"-"9"] >
+    | < #LETTER: ["a"-"z"] | ["A"-"Z"] >
+    | < IDENTIFIER: <LETTER> (<LETTER>|<DIGIT>)* >
+    | < INTEGER_LITERAL: ("-")? (<DIGIT>)+>
+//    | < OP: "&&" | "<" | "+" | "-" | "*" >
+//    | < COMMENT: ("//" (<LETTER>)* "\n") | ("/*" (<LETTER>)* "*/")>
+}
+
+// The following is a simple grammar that will allow you
+// to test the generated lexer.
+
+
+void Goal() :
+{}
+{
+  ( MiniJavaToken() )*
+  <EOF>
+}
+
+void MiniJavaToken():
+{}
+{
+  "class"  |  <IDENTIFIER> | "{" | "public" | "static" | "void" |
+  "main" | "(" | "String"  | "[" | "]" | ")" | "}" | "extends" | ";"
+  | "return" | "," | "int" | "boolean" | "=" | "if" | "else" | "while"
+  | "System.out.println" | "&&" | "<" | "+" | "-" | "*" | "." |
+  "length" | <INTEGER_LITERAL> | "true" | "false" | "this" | "new" |
+  "!"
+}
+
+
