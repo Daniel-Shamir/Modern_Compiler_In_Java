@@ -1,0 +1,17 @@
+2.1:
+    a. c*ab(a | b | c)*
+    b. (aa | b | c)*
+    c. (0 | 1)*100
+    d. ...
+
+2.2:
+    a. we need to keep track of a potentially infinite number, impossible in a finite automata.
+    b. we need to check the first and last letters, but by the time the DFA gets to the last letter, it lost all the previous ones.
+    c. we need to make sure brackets are balanced, i.e. ((3 + 5) is not syntactically correct, and the language of balanced brackets is not regular
+
+2.3:
+    a. all 4 digit binary numbers beginning in 1 or 00 or 010 or are 0111
+    b. all strings under {a} where the number of occurrences of 'a' modulo 5 is 1
+
+2.4:
+    ...
